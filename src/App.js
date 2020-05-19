@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Suspense } from "react";
+import { Translation } from "react-i18next";
+import routes from "./Components/Function/Router";
+import { renderRoutes } from "react-router-config";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <Suspense fallback={<div>Loading</div>}>
+        <Translation>
+          {(t, { i18n }) => {
+            return (
+              <div className="App">
+                {/* {auth ? ( */}
+                {renderRoutes(routes, {
+                  ...this.props,
+                  t: t,
+                  i18n: i18n,
+                  login: this.login,
+                })}
+
+                {/* ) : (
+                    <Switch>
+                    
+                    </Switch>
+                  )} */}
+              </div>
+            );
+          }}
+        </Translation>
+      </Suspense>
+    );
+  }
 }
 
 export default App;
