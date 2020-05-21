@@ -7,6 +7,7 @@ const routes = [
     exact: true,
     path: "/",
     component: Index,
+    heading: true,
   },
   {
     exact: true,
