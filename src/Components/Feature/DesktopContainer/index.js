@@ -51,11 +51,11 @@ class index extends Component {
                   Home
                 </Menu.Item>
                 <Menu.Item as={NavLink} exact={true} to="/ig-dl">
-                  Work
+                  Instagram Downloader
                 </Menu.Item>
-                <Menu.Item as="a">Company</Menu.Item>
-                <Menu.Item as="a">Careers</Menu.Item>
-                <Menu.Item position="right">
+                {/* <Menu.Item as="a">Company</Menu.Item>
+                <Menu.Item as="a">Careers</Menu.Item> */}
+                {/* <Menu.Item position="right">
                   <Button as="a" inverted={!fixed}>
                     Log in
                   </Button>
@@ -67,7 +67,7 @@ class index extends Component {
                   >
                     Sign Up
                   </Button>
-                </Menu.Item>
+                </Menu.Item> */}
               </Container>
             </Menu>
           </Segment>

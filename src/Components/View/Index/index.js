@@ -9,6 +9,7 @@ import {
   Responsive,
   Header,
   Segment,
+  Popup,
 } from "semantic-ui-react";
 
 const getWidth = () => {
@@ -87,7 +88,7 @@ const HomepageLayout = (props) => {
         // getWidth={getWidth()}
         style={{
           minHeight: getWidth() <= Responsive.onlyMobile.maxWidth ? 350 : 450,
-          padding: "1em 0em",
+          padding: "0",
         }}
         vertical
       >
@@ -114,7 +115,7 @@ const HomepageLayout = (props) => {
             horizontal
             style={{ margin: "3em 0em", textTransform: "uppercase" }}
           >
-            <a href="#">Case Studies</a>
+            <hr />
           </Divider>
 
           <Header as="h3" style={{ fontSize: "2em" }}>
@@ -123,9 +124,15 @@ const HomepageLayout = (props) => {
           <p style={{ fontSize: "1.33em" }}>
             Download Youtube Video by the URL link from youtube.
           </p>
-          <Button as="a" size="large">
-            Click to Try it
-          </Button>
+          <Popup
+            trigger={
+              <Button as="a" size="large">
+                Click to Try it
+              </Button>
+            }
+            content="Coming Soon!"
+            inverted
+          />
         </Container>
       </Segment>
     </>

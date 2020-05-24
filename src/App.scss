@@ -1,12 +1,24 @@
 @import "~react-image-gallery/styles/scss/image-gallery.scss";
-#root {
-  height: 100%;
-  > div {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    .warper {
-      flex: 1;
+
+body {
+  overflow-y: auto;
+  #root {
+    height: 100%;
+    // overflow-y: auto;
+    > div {
+      display: flex;
+      overflow-y: auto;
+      flex-direction: column;
+      min-height: 100%;
+      .pusher {
+        display: flex;
+        overflow-y: auto;
+        flex-direction: column;
+        min-height: 100%;
+      }
+      .warper {
+        flex: 1;
+      }
     }
   }
 }

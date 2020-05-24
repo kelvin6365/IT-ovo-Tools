@@ -6,6 +6,8 @@ import history from "./history";
 import "./index.css";
 import App from "./App";
 import "./i18n";
+import ReactGA from "react-ga";
+ReactGA.initialize("UA-89674023-2");
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(

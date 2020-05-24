@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { matchRoutes } from "react-router-config";
+import { NavLink } from "react-router-dom";
 // import routes from "../../Function/Router";
 // import HomepageHeading from "../Header";
 import {
@@ -43,21 +44,23 @@ class index extends Component {
           vertical
           visible={sidebarOpened}
         >
-          <Menu.Item as="a" active>
+          <Menu.Item as={NavLink} exact={true} to="/">
             Home
           </Menu.Item>
-          <Menu.Item as="a">Work</Menu.Item>
-          <Menu.Item as="a">Company</Menu.Item>
-          <Menu.Item as="a">Careers</Menu.Item>
-          <Menu.Item as="a">Log in</Menu.Item>
-          <Menu.Item as="a">Sign Up</Menu.Item>
+          <Menu.Item as={NavLink} exact={true} to="/ig-dl">
+            Instagram Downloader
+          </Menu.Item>
+          {/* <Menu.Item as="a">Company</Menu.Item>
+          <Menu.Item as="a">Careers</Menu.Item> */}
+          {/* <Menu.Item as="a">Log in</Menu.Item>
+          <Menu.Item as="a">Sign Up</Menu.Item> */}
         </Sidebar>
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
           <Segment
             inverted
             textAlign="center"
-            style={{ minHeight: 60, padding: "1em 0em" }}
+            style={{ minHeight: 60, padding: "0.2em 0em" }}
             vertical
           >
             <Container>
@@ -65,14 +68,14 @@ class index extends Component {
                 <Menu.Item onClick={this.handleToggle}>
                   <Icon name="sidebar" />
                 </Menu.Item>
-                <Menu.Item position="right">
+                {/* <Menu.Item position="right">
                   <Button as="a" inverted>
                     Log in
                   </Button>
                   <Button as="a" inverted style={{ marginLeft: "0.5em" }}>
                     Sign Up
                   </Button>
-                </Menu.Item>
+                </Menu.Item> */}
               </Menu>
             </Container>
           </Segment>

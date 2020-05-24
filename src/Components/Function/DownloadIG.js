@@ -2,7 +2,7 @@ const _ = (e) => document.querySelector(e);
 const init = (elementID, url, callBack, createVideo) => {
   var area = document.getElementById(elementID);
   console.log(area);
-  area.innerHTML = "";
+  //   area.innerHTML = "";
   getMedia(area, url, callBack, createVideo);
 };
 
@@ -61,9 +61,26 @@ const getMedia = (area, url, callBack, createVideo) => {
         const PostPage = jsonObject.entry_data.PostPage;
         const igResources = [];
         PostPage.map((obj) => {
-          igResources.push(
-            ...obj.graphql.shortcode_media.edge_sidecar_to_children.edges
-          );
+          if (obj.graphql.shortcode_media.__typename == "GraphSidecar") {
+            igResources.push(
+              ...obj.graphql.shortcode_media.edge_sidecar_to_children.edges
+            );
+          } else if (obj.graphql.shortcode_media.__typename == "GraphImage") {
+            igResources.push({
+              node: {
+                is_video: false,
+                display_url: obj.graphql.shortcode_media.display_url,
+              },
+            });
+          } else {
+            igResources.push({
+              node: {
+                is_video: true,
+                video_url: obj.graphql.shortcode_media.video_url,
+                display_url: obj.graphql.shortcode_media.display_url,
+              },
+            });
+          }
         });
         console.log(igResources);
         // wait, find meta and create video or image
